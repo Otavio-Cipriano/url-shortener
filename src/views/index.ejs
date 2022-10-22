@@ -1,0 +1,27 @@
+<div class="container vh-100 w-100 d-flex justify-content-center align-items-center ">
+    <div class="box mw-50  bg-dark p-4 rounded-3 w-100" style="max-width: 500px; position: relative;">
+        <form class="text-center form">
+            <h2 class="mb-3">Encurte sua URL</h2>
+            <input class="form-control" type="text" name="url_input" id="url-input" placeholder="Enter a URL">
+            <button type="submit" class="btn btn-primary mt-3 btn-lg">Gerar Link</button>
+        </form>
+        <div style="position: absolute;">
+           <h3>Sua URL Encurtada</h3>
+        </div>
+    </div>
+</div>
+<script>
+    const formData = document.querySelector('form')
+    formData.addEventListener('submit', async(e) => {
+        e.preventDefault()
+        let url = formData.url_input.value
+
+        if(url){
+            console.log(url)
+            let result = await fetch('/', {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify({url: url})}).then(res => res.json())
+            if(!result) return false
+
+            formData.url_input.value = ''
+        }
+    })
+</script>

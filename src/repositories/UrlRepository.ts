@@ -1,4 +1,4 @@
-import Url from 'src/Schema/UrlSchema'
+import Url from '@schemas/UrlSchema'
 
 export default class UrlRepository {
   public static async createUrl (url: string) {

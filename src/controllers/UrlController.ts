@@ -23,10 +23,11 @@ export default class UrlController {
   }
 
   public static async getLink (req: Request, res: Response) {
-    const params = req.params
-    if (!params?.id) return res.status(400).send({ error: 'Ops, This page doesn\'t exist' })
+    const { id } = req.params
 
-    const query = await UrlService.getUrl(params?.id)
+    if (id) return res.status(400).send({ error: 'Ops, This page doesn\'t exist' })
+
+    const query = await UrlService.getUrl(id)
 
     if (!query?.success) return res.status(400).send({ error: 'Ops, This page doesn\'t exist' })
 

@@ -1,4 +1,4 @@
-import UrlRepository from 'src/Repositories/UrlRepository'
+import UrlRepository from '@repositories/UrlRepository'
 
 export default class UrlService {
   public static async registerUrl (url: string) {
