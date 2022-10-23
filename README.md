@@ -1,10 +1,37 @@
-# URL Shortner
+<h1 align="center">URL Shortner</h1>
 
-A API to shorten urls, created using Nodejs, Typescript and MongoDB
+<p align="center">A API to shorten urls, created using Nodejs, Typescript and MongoDB</p>
 
-# Routes
+## Table of Contents
 
-## /
+- [Features](#features)
+- [Routes](#routes)
+- [How to Install and Run](#how-to-install-and-run)
+- [Author](#author)
+
+
+## Features
+
+- [x] You can send a url and receive a short verison
+- [x] You can be redirect to the original url site if original url exists
+
+
+## Built with
+
+- [Nodejs](https://nodejs.org/en/download/)
+- [ExpressJs](https://expressjs.com/pt-br/)
+- [Ejs](http://ejs.co/)
+- [ValidateJs](https://validatejs.org/)
+- [MongoDB](https://validatejs.org/)
+- [Mongoose](https://mongoosejs.com/docs/guide.html)
+- [Typescript](https://www.typescriptlang.org/)
+
+## Routes
+
+### /
+
+---
+
 Method Allowed by the Endpoint
 
 | Syntax | Description |
@@ -27,7 +54,9 @@ POST method
       }
       
 
-## /:id
+### /:id
+
+---
 
 Method Allowed by the Endpoint
 
@@ -41,7 +70,7 @@ GET method
 * Response 301 (text/html)
 
 
-# How to Install and Run
+## How to Install and Run
 
 This application uses [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/) and [Nodejs](https://nodejs.org/en/download/), it's necessary to download and install to run the application. If you already has them installed you can proceed.
 
