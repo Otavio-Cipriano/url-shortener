@@ -2,26 +2,54 @@
     <div class="box mw-50  bg-dark p-4 rounded-3 w-100" style="max-width: 500px; position: relative;">
         <form class="text-center form">
             <h2 class="mb-3">Encurte sua URL</h2>
-            <input class="form-control" type="text" name="url_input" id="url-input" placeholder="Enter a URL">
+            <input required autocomplete="off" class="form-control" type="text" name="url_input" id="url-input" placeholder="Enter a URL">
+            <span class="text-danger d-none error" style="position: absolute; right: 2rem;">Url invalida </span>
             <button type="submit" class="btn btn-primary mt-3 btn-lg">Gerar Link</button>
         </form>
-        <div style="position: absolute;">
-           <h3>Sua URL Encurtada</h3>
+        <div class="url-box text-center w-100 bg-dark bg-opacity-75 p-2 rounded-3 d-none" style="position: absolute; left: 0; bottom: -100%; border: white solid 1px;">
+           <h4>Sua URL Encurtada</h4>
+           <a class="short-url" target="_blank" href="">
+           </a>
         </div>
     </div>
 </div>
 <script>
     const formData = document.querySelector('form')
+    const shortUrlEl = document.querySelector('.short-url')
+    const urlBoxEl = document.querySelector('.url-box')
+    const errorMsg = document.querySelector('.error')
+
     formData.addEventListener('submit', async(e) => {
         e.preventDefault()
         let url = formData.url_input.value
-
+        
         if(url){
             console.log(url)
             let result = await fetch('/', {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify({url: url})}).then(res => res.json())
+            
             if(!result) return false
 
+            if(result?.error) {
+                errorMsg.classList.remove('d-none')
+                errorMsg.classList.remove('d-block')
+                formData.url_input.classList.add('border')
+                formData.url_input.classList.add('border-danger')
+                formData.url_input.value = ''
+                return
+            }
+            
+            shortUrlEl.innerHTML = result.shortUrl
+            shortUrlEl.href = result.shortUrl
+            urlBoxEl.classList.remove('d-none')
+            urlBoxEl.classList.add('d-block')
             formData.url_input.value = ''
         }
+    })
+
+
+    formData.url_input.addEventListener('focus', (e) => {
+       e.target.classList.remove('border-danger')
+       errorMsg.classList.remove('d-block')
+       errorMsg.classList.add('d-none')
     })
 </script>
