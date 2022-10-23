@@ -2,10 +2,6 @@
 
 A API to shorten urls, created using Nodejs, Typescript and MongoDB
 
-## Project
-
-This Application is URL Shortner, created using Nodejs, Typescript, MongoDB and Mongoose.
-
 # Routes
 
 ## /
