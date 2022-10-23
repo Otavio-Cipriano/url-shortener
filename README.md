@@ -2,17 +2,13 @@
 
 A API to shorten urls, created using Nodejs, Typescript and MongoDB
 
-## Index
-- [Project](#project)
-- [Routes](#routes)
-
 ## Project
 
 This Application is URL Shortner, created using Nodejs, Typescript, MongoDB and Mongoose.
 
-## Routes
+# Routes
 
-### /
+## /
 Method Allowed by the Endpoint
 
 | Syntax | Description |
@@ -47,3 +43,34 @@ GET method
 
 * Response 200 (redirect) 
 * Response 301 (text/html)
+
+
+# How to Install and Run
+
+This application uses [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/) and [Nodejs](https://nodejs.org/en/download/), it's necessary to download and install to run the application. If you already has them installed you can proceed.
+
+Installing Yarn
+            
+     npm install --global yarn
+
+Installing the dependencies using yarn
+
+     yarn install
+           
+Running the application using yarn
+
+      yarn run
+      
+## Author
+
+Made by [@Otavio-Cipriano](https://github.com/Otavio-Cipriano) 🤖
+
+<br/>
+<br/>
+
+<a href="https://www.linkedin.com/in/otaviocipriano/">
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin"/>
+</a>
+<a href="https://twitter.com/otaviodv">
+<img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="twitter"/>
+</a>
